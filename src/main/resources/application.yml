@@ -13,7 +13,7 @@ spring:
       routes[1]:
         id: booking-microservice
         uri: lb://BOOKING-MICROSERVICE
-        predicates[1]: Path=/api/booking/**
+        predicates[0]: Path=/api/booking/**
     loadbalancer:
       ribbon:
         enabled: false
