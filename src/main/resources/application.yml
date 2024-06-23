@@ -10,6 +10,10 @@ spring:
         id: product-microservice
         uri: lb://PRODUCT-MICROSERVICE
         predicates[0]: Path=/api/products/**, /api/categories/**
+      routes[1]:
+        id: booking-microservice
+        uri: lb://BOOKING-MICROSERVICE
+        predicates[1]: Path=/api/booking/**
     loadbalancer:
       ribbon:
         enabled: false
