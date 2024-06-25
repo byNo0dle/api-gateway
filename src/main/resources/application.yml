@@ -17,6 +17,19 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9090/realms/noodlecompany-microservices-realm
+        registration:
+          spring-cloud-gateway-client:
+            authorization-grant-type: authorization_code
+            client-id: spring-cloud-gateway-client
+            client-secret: 7gOwZjoYG2dGxYa4qmHx8ixkgibf9Kep
+            provider: keycloak
+            redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client
 
 eureka:
   instance:
