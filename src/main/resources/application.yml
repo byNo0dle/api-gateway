@@ -3,6 +3,7 @@ spring:
     name: api-gateway
   cloud:
     gateway:
+      default-filters: TokenRelay
       discovery:
         locator:
           enabled: true
@@ -17,6 +18,8 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
+  main:
+    allow-bean-definition-overriding: true
   security:
     oauth2:
       client:
@@ -27,9 +30,10 @@ spring:
           spring-cloud-gateway-client:
             authorization-grant-type: authorization_code
             client-id: spring-cloud-gateway-client
-            client-secret: 7gOwZjoYG2dGxYa4qmHx8ixkgibf9Kep
+            client-secret: Na6rTutANws2w29lcU4NmANEtIdW8ciF
             provider: keycloak
             redirect-uri: http://localhost:8080/login/oauth2/code/spring-cloud-gateway-client
+            scope: openid
 
 eureka:
   instance:
